@@ -37,3 +37,19 @@
     font-weight:bold;
     margin-left:730px;
 }
+.input {
+    padding:5px;
+    margin:5px;
+}
+.selection {
+    padding:5px;
+    margin:2px;
+}
+.edit-btn {
+    padding:5px;
+    font-weight:bold;
+    color:#38bdf8;
+    height:40px;
+    width:100px;
+    margin-left:100px;
+}
