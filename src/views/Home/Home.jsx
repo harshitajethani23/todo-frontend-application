@@ -21,6 +21,15 @@ function Home() {
         alert(response.data.message);
         loadTodos();
       }
+  };
+
+  const markTodoDone = async(id,isDone)=>{
+    const response = await axios.patch(`http://localhost:8080/todos/${id}/status`,
+      {isDone:isDone}
+    );
+    if(response) {
+      loadTodos();
+    }
   }
   return (
     <div>
@@ -29,6 +38,9 @@ function Home() {
         const {id,todoItem,emoji,priority,isDone,createdAt} = todoObj;
         return <div key={id} className="todo-card"> 
         <span className="todo-priority">{priority}</span>
+        <input type="checkbox" checked={isDone} onChange={(e)=>{
+          markTodoDone(id,e.target.checked);
+        }} />
         <div className="todo-icon">{emoji}</div>
         <div className={`todo-detail  ${isDone?"todo-done":""}` }>
         <h2>{todoItem}</h2>
@@ -39,7 +51,7 @@ function Home() {
 
           <button className="delete-btn" onClick={()=>{
             deleteTodo(id);
-          }}>Delete Now</button>
+          }}>Delete Task</button>
         </div>
       })}
  <Link to="/new" className="newtodo-btn">New Todo</Link>
