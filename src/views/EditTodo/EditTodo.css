@@ -1,0 +1,39 @@
+.newTodo-form {
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    width:300px;
+    padding:20px 40px;
+    border:1px solid #38bdf8;
+    margin: 50px auto;
+    border-radius:20px;
+
+   
+    
+}
+.header-1 {
+    color:white;
+    text-align: center;
+}
+.items {
+    text-align: center;
+    color:white;
+}
+.emoji {
+    color:white;
+}
+.heading {
+    color:white;
+    text-align:center;
+    margin-top:30px;
+
+}
+.back-btn {
+    padding:15px;
+    border-radius:50px;
+    background: white;
+    color:black;
+    text-decoration:none;
+    font-weight:bold;
+    margin-left:730px;
+}

@@ -1,7 +1,9 @@
 import {useState,useEffect} from "react";
-import {Link} from "react-router"
-import axios from "axios"
-import "./Home.css"
+import {Link} from "react-router";
+import axios from "axios";
+import "./Home.css";
+import edit from "./pen.png"
+import del from "./delete.png"
 
 function Home() {
   const [todos,setTodos] = useState([]);
@@ -49,9 +51,14 @@ function Home() {
           {createdAt.replace("T"," ").slice(0,16)}
           </span>
 
-          <button className="delete-btn" onClick={()=>{
+          <img src={del} className="delete-icon" onClick={()=>{
             deleteTodo(id);
-          }}>Delete Task</button>
+          }} />
+
+            <Link to= {`/edit/${id}`}>
+            <img src={edit} className="edit-icon"/></Link>
+
+
         </div>
       })}
  <Link to="/new" className="newtodo-btn">New Todo</Link>
