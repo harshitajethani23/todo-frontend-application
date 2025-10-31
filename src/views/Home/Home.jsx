@@ -9,7 +9,7 @@ function Home() {
   const [todos, setTodos] = useState([]);
 
   const loadTodos = async () => {
-    const response = await axios.get("http://localhost:8080/todos");
+    const response = await axios.get(`${import.meta.env.VITE_API_URL}/todos`);
     setTodos(response.data.data);
   }
 
@@ -18,7 +18,7 @@ function Home() {
   }, []);
 
   const deleteTodo = async (id) => {
-    const response = await axios.delete(`http://localhost:8080/todos/${id}`);
+    const response = await axios.delete(`${import.meta.env.VITE_API_URL}/todos/${id}`);
     if (response) {
       alert(response.data.message);
       loadTodos();
@@ -26,7 +26,7 @@ function Home() {
   };
 
   const markTodoDone = async (id, isDone) => {
-    const response = await axios.patch(`http://localhost:8080/todos/${id}/status`,
+    const response = await axios.patch(`${import.meta.env.VITE_API_URL}/todos/${id}/status`,
       { isDone: isDone }
     );
     if (response) {

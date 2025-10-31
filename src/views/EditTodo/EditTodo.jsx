@@ -17,7 +17,7 @@ function EditTodo() {
 
     const loadTodo = async (id) => {
         if (!id) return;
-        const response = await axios.get(`http://localhost:8080/todos/${id}`);
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/todos/${id}`);
         const todoDetail = response.data.data;
         setTodoData({
             todoItem: todoDetail.todoItem,
@@ -35,7 +35,7 @@ function EditTodo() {
         (false);
 
     const UpdateTodo = async () => {
-        const response = await axios.put(`http://localhost:8080/todos/${id}`,
+        const response = await axios.put(`${import.meta.env.VITE_API_URL}/todos/${id}`,
             todoData);
         if (response) {
             alert(response.data.message);

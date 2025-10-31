@@ -15,7 +15,7 @@ function NewTodo() {
         (false);
 
     const addTodo = async () => {
-        const response = await axios.post(`http://localhost:8080/todos`,
+        const response = await axios.post(`${import.meta.env.VITE_API_URL}/todos`,
             todoData);
         if (response) {
             alert(response.data.message);
